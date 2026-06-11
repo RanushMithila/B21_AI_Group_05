@@ -39,40 +39,43 @@ CREATE TABLE IF NOT EXISTS inventory (
     FOREIGN KEY (plant_id) REFERENCES plants(id) ON DELETE CASCADE
 );
 
--- Seed categories
+-- Seed categories (names 3-10 chars per SRS validation rules)
 INSERT INTO categories (name, parent_id) VALUES ('Indoor', NULL);
 INSERT INTO categories (name, parent_id) VALUES ('Outdoor', NULL);
-INSERT INTO categories (name, parent_id) VALUES ('Succulents', 1);
-INSERT INTO categories (name, parent_id) VALUES ('Ferns', 1);
-INSERT INTO categories (name, parent_id) VALUES ('Foliage', 1);
-INSERT INTO categories (name, parent_id) VALUES ('Shrubs', 2);
-INSERT INTO categories (name, parent_id) VALUES ('Flowering', 2);
+INSERT INTO categories (name, parent_id) VALUES ('Cacti', 1);
+INSERT INTO categories (name, parent_id) VALUES ('Bonsai', 1);
+INSERT INTO categories (name, parent_id) VALUES ('Palms', 1);
+INSERT INTO categories (name, parent_id) VALUES ('Herbs', 2);
+INSERT INTO categories (name, parent_id) VALUES ('Climbers', 2);
+INSERT INTO categories (name, parent_id) VALUES ('Aquatic', 2);
 
--- Seed plants
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Aloe Vera', 15.5, 100, 3);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Snake Plant', 25.0, 60, 3);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Boston Fern', 18.0, 40, 4);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Ficus', 30.0, 25, 5);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Monstera', 45.0, 15, 5);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Rose', 20.0, 80, 7);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Tulip', 12.0, 150, 7);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Lavender', 15.0, 90, 6);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Hydrangea', 22.5, 30, 6);
-INSERT INTO plants (name, price, quantity, category_id) VALUES ('Sunflower', 10.0, 200, 7);
+-- Seed plants (names 3-25 chars, price > 0, quantity >= 0, sub-categories only)
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Golden Barrel Cactus', 12.50, 45, 3);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Bunny Ear Cactus', 9.75, 30, 3);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Juniper Bonsai', 55.00, 12, 4);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Chinese Elm Bonsai', 65.00, 8, 4);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Areca Palm', 35.00, 25, 5);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Basil', 4.50, 120, 6);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Mint', 3.99, 150, 6);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Rosemary', 6.25, 3, 6);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Jasmine', 18.00, 40, 7);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Money Plant', 14.50, 70, 7);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Water Lily', 28.00, 20, 8);
+INSERT INTO plants (name, price, quantity, category_id) VALUES ('Lotus', 32.50, 0, 8);
 
--- Seed sales
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (1, 2, 31.0, '2026-05-28 14:30:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (2, 1, 25.0, '2026-05-28 14:35:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (3, 3, 54.0, '2026-05-28 14:40:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (4, 1, 30.0, '2026-05-28 14:45:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (5, 2, 90.0, '2026-05-28 15:00:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (6, 5, 100.0, '2026-05-28 15:10:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (7, 10, 120.0, '2026-05-28 15:15:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (8, 4, 60.0, '2026-05-28 15:20:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (9, 2, 45.0, '2026-05-28 15:30:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (10, 5, 50.0, '2026-05-28 15:45:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (1, 1, 15.5, '2026-05-28 16:00:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (2, 2, 50.0, '2026-05-28 16:05:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (6, 2, 40.0, '2026-05-28 16:15:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (7, 5, 60.0, '2026-05-28 16:20:00');
-INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (9, 1, 22.5, '2026-05-28 16:30:00');
+-- Seed sales (total_price = plant price x quantity)
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (1, 2, 25.00, '2026-06-01 09:15:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (3, 1, 55.00, '2026-06-01 11:30:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (6, 10, 45.00, '2026-06-02 10:00:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (7, 8, 31.92, '2026-06-02 14:20:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (9, 3, 54.00, '2026-06-03 09:45:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (10, 5, 72.50, '2026-06-03 16:10:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (5, 2, 70.00, '2026-06-04 10:30:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (2, 4, 39.00, '2026-06-04 15:00:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (11, 1, 28.00, '2026-06-05 11:05:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (4, 1, 65.00, '2026-06-05 13:40:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (6, 6, 27.00, '2026-06-06 09:25:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (8, 2, 12.50, '2026-06-06 17:15:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (1, 3, 37.50, '2026-06-07 10:50:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (10, 2, 29.00, '2026-06-07 14:35:00');
+INSERT INTO sales (plant_id, quantity, total_price, sold_at) VALUES (5, 1, 35.00, '2026-06-08 12:00:00');
