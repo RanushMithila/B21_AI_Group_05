@@ -68,10 +68,6 @@ When('I click the Sell button without selecting a plant', () => {
 	salesPage.clickSellWithoutSelectingPlant();
 });
 
-Then('I should see the validation message {string}', (message: string) => {
-	salesPage.checkValidationMessage(message);
-});
-
 // ─── TC_SAL_UI_ADM_004: stock verification ────────────────────────────────────
 
 Given('I note the current stock of plant with id {string}', (plantId: string) => {

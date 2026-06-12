@@ -77,10 +77,6 @@ Then('I should see the Category Name validation messages', () => {
   categoryPage.checkCategoryNameValidationMessages();
 });
 
-Then('I should see the validation message {string}', (message: string) => {
-  categoryPage.checkValidationMessage(message);
-});
-
 Then('I should see {string} in the category list', (categoryName: string) => {
   categoryPage.checkCategoryInList(categoryName);
 });
