@@ -34,3 +34,9 @@ Feature: User - Sales API
     When I send a GET request to retrieve all sales
     Then the response status should be 200
     And the response body should be an empty sales list
+
+  @API_Dashboard_Read_013
+  Scenario: Retrieve paged sales transactions as User for dashboard feed
+    When I send a GET request to retrieve paged sales transactions with page "0" and size "5"
+    Then the response status should be 200
+    And the response body should contain a paginated JSON object of saless
