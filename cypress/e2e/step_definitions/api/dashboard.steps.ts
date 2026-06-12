@@ -19,3 +19,13 @@ Then('the response body should contain status {string}', (expectedStatus: string
     expect(body.status).to.eq(expectedStatus);
   });
 });
+
+When('I send a GET request to the plant summary endpoint without authentication', function () {
+  cy.env(['apiUrl']).then(({ apiUrl }) => {
+    cy.request({
+      method: 'GET',
+      url: `${apiUrl}/plants/summary`,
+      failOnStatusCode: false
+    }).as('response');
+  });
+});
