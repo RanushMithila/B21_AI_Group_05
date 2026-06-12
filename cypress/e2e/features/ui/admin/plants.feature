@@ -45,12 +45,7 @@ Feature: Admin - Plants UI
   @215512A @PLNT_UI_ADMIN_005
   Scenario: Confirm that only sub-categories are selectable, not main categories
     When I navigate to the add plant page
-    And I enter "Valid Plant" in the plant name field
-    And I select a main category from the dropdown
-    And I enter "10.00" in the price field
-    And I enter "5" in the quantity field
-    And I click on the "Save" button on the plant form
-    Then I should see a main category selection error
+    Then the category dropdown should not offer main categories
 
   @215512A @PLNT_UI_ADMIN_006
   Scenario: Confirm admin can modify the details of an existing plant

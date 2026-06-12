@@ -53,8 +53,8 @@ When('I select a sub-category from the dropdown', () => {
 	plantPage.selectSubCategory();
 });
 
-When('I select a main category from the dropdown', () => {
-	plantPage.selectMainCategory();
+Then('the category dropdown should not offer main categories', () => {
+	plantPage.checkMainCategoriesNotSelectable();
 });
 
 When('I enter {string} in the price field', (price: string) => {
@@ -81,9 +81,6 @@ Then('I should see the negative quantity validation message', () => {
 	plantPage.checkNegativeQuantityMessage();
 });
 
-Then('I should see a main category selection error', () => {
-	plantPage.checkMainCategoryError();
-});
 
 // === PLNT_UI_ADMIN_006: Edit plant ===
 

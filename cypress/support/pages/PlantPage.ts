@@ -46,8 +46,13 @@ class PlantPage {
 		cy.get('#categoryId').should('contain', 'Cacti').select('Cacti');
 	}
 
-	selectMainCategory() {
-		cy.get('#categoryId').should('contain', 'Indoor').select('Indoor');
+	// Main categories (Indoor, Outdoor) must NOT be offered in the Add Plant
+	// dropdown — only sub-categories are selectable. Wait for options to load
+	// (assert a known sub-category is present) before asserting absence.
+	checkMainCategoriesNotSelectable() {
+		cy.get('#categoryId').should('contain', 'Cacti');
+		cy.get('#categoryId').find('option').should('not.contain', 'Indoor');
+		cy.get('#categoryId').find('option').should('not.contain', 'Outdoor');
 	}
 
 	checkNameRequiredMessage() {
@@ -66,11 +71,7 @@ class PlantPage {
 		cy.contains('Quantity cannot be negative').should('be.visible');
 	}
 
-	checkMainCategoryError() {
-		cy.get('.text-danger, .invalid-feedback, .alert-danger').should('be.visible');
-	}
-
-	clickEditIconOnFirstRow() {
+clickEditIconOnFirstRow() {
 		cy.get('table tbody tr').first().find('a[href*="/edit"]').click();
 	}
 
