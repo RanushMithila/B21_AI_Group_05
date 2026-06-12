@@ -1,5 +1,5 @@
 @api @user @plants @215512A
-Feature: User - Plants API
+Feature: User - Plants API 
 
   Background:
     Given User is authenticated as user
