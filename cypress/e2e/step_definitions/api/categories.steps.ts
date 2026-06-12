@@ -93,3 +93,25 @@ When('I send a GET request to view category with id {string}', (categoryId: stri
     })
   })
 })
+
+When('I send a GET request to retrieve the category summary', function () {
+  cy.get('@token').then((token) => {
+    cy.env(['apiUrl']).then(({ apiUrl }) => {
+      cy.request({
+        method: 'GET',
+        url: `${apiUrl}/categories/summary`,
+        headers: { Authorization: `Bearer ${token}` },
+        failOnStatusCode: false
+      }).as('response')
+    })
+  })
+})
+
+Then('the response body should contain the category summary details', () => {
+  cy.get('@response').its('body').then((body: any) => {
+    expect(body).to.have.property('mainCategories')
+    expect(body.mainCategories).to.be.a('number')
+    expect(body).to.have.property('subCategories')
+    expect(body.subCategories).to.be.a('number')
+  })
+})

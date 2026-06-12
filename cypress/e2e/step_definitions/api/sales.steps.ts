@@ -228,3 +228,24 @@ Then('the response body should be an empty sales list', () => {
 		expect(sales.length).to.eq(0)
 	})
 })
+
+When('I send a GET request to retrieve paged sales transactions with page {string} and size {string}', function (page: string, size: string) {
+	cy.get('@token').then((token) => {
+		cy.env(['apiUrl']).then(({ apiUrl }) => {
+			cy.request({
+				method: 'GET',
+				url: `${apiUrl}/sales/page?page=${page}&size=${size}`,
+				headers: { Authorization: `Bearer ${token}` },
+				failOnStatusCode: false
+			}).as('response')
+		})
+	})
+})
+
+Then('the response body should contain a paginated JSON object of sales', () => {
+	cy.get('@response').its('body').then((body: any) => {
+		expect(body).to.have.property('content')
+		expect(body).to.have.property('pageable')
+		expect(body.content).to.be.an('array')
+	})
+})
