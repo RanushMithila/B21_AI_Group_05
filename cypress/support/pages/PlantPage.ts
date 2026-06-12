@@ -43,11 +43,11 @@ class PlantPage {
 	}
 
 	selectSubCategory() {
-		cy.get('select').select('Cacti');
+		cy.get('#categoryId').should('contain', 'Cacti').select('Cacti');
 	}
 
 	selectMainCategory() {
-		cy.get('select').select('Indoor');
+		cy.get('#categoryId').should('contain', 'Indoor').select('Indoor');
 	}
 
 	checkNameRequiredMessage() {
