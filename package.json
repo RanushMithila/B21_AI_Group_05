@@ -1,14 +1,14 @@
 {
-  "name": "b21_ai_group_02",
+  "name": "b21_ai_group_05",
   "version": "1.0.0",
   "description": "ITQA Assignment",
-  "homepage": "https://github.com/Lihaj/B21_AI_Group_02#readme",
+  "homepage": "https://github.com/RanushMithila/B21_AI_Group_05#readme",
   "bugs": {
-    "url": "https://github.com/Lihaj/B21_AI_Group_02/issues"
+    "url": "https://github.com/RanushMithila/B21_AI_Group_05/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lihaj/B21_AI_Group_02.git"
+    "url": "git+https://github.com/RanushMithila/B21_AI_Group_05.git"
   },
   "license": "ISC",
   "author": "",
