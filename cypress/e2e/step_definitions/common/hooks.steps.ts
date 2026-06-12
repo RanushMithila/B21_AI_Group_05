@@ -10,10 +10,6 @@ const VALID_TAGS = [
   "sales",
   "plants",
   "dashboard",
-  "215523H",
-  "215503X",
-  "215566P",
-  "215521B",
   "215512A"
 ];
 
