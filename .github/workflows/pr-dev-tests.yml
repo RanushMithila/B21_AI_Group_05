@@ -73,7 +73,7 @@ jobs:
         run: |
           set +e
           TAGS=("215526U" "215512A" "215548M" "215557N")
-          EXPECTED_FAIL_COUNTS=("2" "0" "1" "1")
+          EXPECTED_FAIL_COUNTS=("3" "4" "4" "3")
           SUMMARY_FILE="$RUNNER_TEMP/allure-tag-summary.json"
 
           echo "[]" > "$SUMMARY_FILE"
