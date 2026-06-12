@@ -1,4 +1,4 @@
-import { Before } from "@badeball/cypress-cucumber-preprocessor";
+import { After, Before } from "@badeball/cypress-cucumber-preprocessor";
 import * as allure from "allure-cypress";
 
 const VALID_TAGS = [
@@ -13,7 +13,8 @@ const VALID_TAGS = [
   "215523H",
   "215503X",
   "215566P",
-  "215521B"
+  "215521B",
+  "215548M"
 ];
 
 Before((scenario) => {
@@ -23,4 +24,10 @@ Before((scenario) => {
       allure.label("tag", tagName);
     }
   });
+});
+
+// Re-seed the database after any scenario that deliberately clears sales,
+// so subsequent tests in the same spec run with a full dataset.
+After({ tags: "@TC_SAL_UI_USR_004 or @TC_SAL_API_USR_005" }, () => {
+  cy.seedDatabase();
 });
