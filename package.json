@@ -13,46 +13,8 @@
   "license": "ISC",
   "author": "",
   "type": "commonjs",
-  "main": "index.js",a{
-  "name": "b21_ai_group_05",
-  "version": "1.0.0",
-  "description": "ITQA Assignment",
-  "homepage": "https://github.com/RanushMithila/B21_AI_Group_05#readme",
-  "bugs": {
-    "url": "https://github.com/RanushMithila/B21_AI_Group_05/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RanushMithila/B21_AI_Group_05.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "test:api": "cypress run --spec 'cypress/e2e/features/api/**/*.feature'",
-    "test:ui": "cypress run --spec 'cypress/e2e/features/ui/**/*.feature'",
-    "test:headed": "cypress open",
-    "allure": "npx allure awesome allure-results --single-file && npx allure open allure-report"
-  },
-  "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^24.0.1",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
-    "allure-cypress": "^3.9.0",
-    "cypress": "^15.15.0",
-    "dotenv": "^17.4.2",
-    "mysql2": "^3.22.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
-  },
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": false,
-    "stepDefinitions": [
-      "cypress/e2e/step_definitions/**/*.ts"
-    ]
-  }
-}  "scripts": {
     "test": "cypress run",
     "test:api": "cypress run --spec 'cypress/e2e/features/api/**/*.feature'",
     "test:ui": "cypress run --spec 'cypress/e2e/features/ui/**/*.feature'",
