@@ -167,3 +167,25 @@ Then('the response body should contain a list of plants', () => {
 		expect(list).to.be.an('array').and.have.length.greaterThan(0)
 	})
 })
+
+When('I send a GET request to retrieve the plant inventory summary', function () {
+	cy.get('@token').then((token) => {
+		cy.env(['apiUrl']).then(({ apiUrl }) => {
+			cy.request({
+				method: 'GET',
+				url: `${apiUrl}/plants/summary`,
+				headers: { Authorization: `Bearer ${token}` },
+				failOnStatusCode: false
+			}).as('response')
+		})
+	})
+})
+
+Then('the response body should contain the plant inventory summary details', () => {
+	cy.get('@response').its('body').then((body: any) => {
+		expect(body).to.have.property('totalPlants')
+		expect(body.totalPlants).to.be.a('number')
+		expect(body).to.have.property('lowStockPlants')
+		expect(body.lowStockPlants).to.be.a('number')
+	})
+})

@@ -46,3 +46,9 @@ Feature: Admin - Plants API
   Scenario: Confirm API returns a validation error when the category field is absent
     When I send a POST request to create a plant without a category
     Then the response status should be 400
+
+@API_Dashboard_Read_007 @215557N
+  Scenario: Retrieve plant inventory summary on system dashboard
+    When I send a GET request to retrieve the plant inventory summary
+    Then the response status should be 200
+    And the response body should contain the plant inventory summary details
