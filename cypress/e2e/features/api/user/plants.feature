@@ -14,7 +14,7 @@ Feature: User - Plants API
     When I send a PUT request to update plant with id "1" name "Updated Name" price "15.00" quantity "50"
     Then the response status should be 403
 
-  @API_Dashboard_Read_011
+  @215557N @API_Dashboard_Read_011
   Scenario: Retrieve plant inventory summary as regular user
     When I send a GET request to retrieve the plant inventory summary
     Then the response status should be 200

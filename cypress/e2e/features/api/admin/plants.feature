@@ -47,7 +47,7 @@ Feature: Admin - Plants API
     When I send a POST request to create a plant without a category
     Then the response status should be 400
 
-@API_Dashboard_Read_007 @215557N
+@215557N @API_Dashboard_Read_007 
   Scenario: Retrieve plant inventory summary on system dashboard
     When I send a GET request to retrieve the plant inventory summary
     Then the response status should be 200
