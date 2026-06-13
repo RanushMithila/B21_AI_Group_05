@@ -10,3 +10,7 @@ Then('the response body should contain the error message {string}', (errorMessag
     expect(JSON.stringify(body)).to.include(errorMessage)
   })
 })
+
+Then('I should see the validation message {string}', (message: string) => {
+  cy.contains('.invalid-feedback', message).should('be.visible')
+})

@@ -46,7 +46,7 @@ Given('There are sales in the system', () => {
 })
 
 Then('I should be navigated to the categories page', () => {
-    cy.url().should('include', '/ui/categories');
+    cy.url().should('include', '/categories');
 })
 
 Then('I should see the sidebar with links {string}, {string}, {string}, {string}, and {string}', (l1: string, l2: string, l3: string, l4: string, l5: string) => {

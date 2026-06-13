@@ -1,7 +1,7 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
 When('I open the browser and navigate to the login page', () => {
-  cy.visit('/ui/login');
+  cy.visit('/login');
 });
 
 Then('I should see the logo image with alt attribute {string}', (altText: string) => {
